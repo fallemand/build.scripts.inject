@@ -1,0 +1,30 @@
+{
+  "name": "build.scripts.inject",
+  "version": "0.1.0",
+  "description": "Inject Js files in others",
+  "private": true,
+  "author": "frontend@mercadolibre.com",
+  "scripts": {
+    "start": "./node_modules/.bin/serve .",
+    "build": "./node_modules/.bin/gulp build",
+    "dist": "./node_modules/.bin/gulp dist",
+    "test": "./node_modules/.bin/karma start --single-run --browsers PhantomJS",
+    "install-selenium": "./node_modules/selenium-standalone/bin/selenium-standalone install",
+    "nightwatch": "./node_modules/.bin/nightwatch",
+    "gh-pages": "./node_modules/.bin/gulp deploy:gh-pages",
+    "swift": "./node_modules/.bin/gulp deploy:swift"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mercadolibre/build.scripts.inject"
+  },
+  "homepage": "https://github.com/mercadolibre/build.scripts.inject",
+  "bugs": {
+    "url": "https://github.com/mercadolibre/build.scripts.inject/issues"
+  },
+  "devDependencies": {
+    "gulp": "3.9.1",
+    "gulp-sync": "0.1.4",
+    "ui-gulp_tasks": "1.14.2"
+  }
+}
