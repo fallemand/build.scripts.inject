@@ -1,8 +1,8 @@
 # build.scripts.concat - inject
 
 ## What is this?
+This is an example of how to use the `inject` parameter of the task [build.scripts.concat](https://github.com/mercadolibre/ui-gulp_tasks/blob/master/tasks/build.scripts.concat.js).  
 This parameter lets you inject JS files in others.
-This works with the UI-APP scaffolding.
 
 ## How it works
 Inject is inactive by default in the [ui-gulp_tasks](https://github.com/mercadolibre/ui-gulp_tasks), you need to activate it
