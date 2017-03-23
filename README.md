@@ -1,25 +1,32 @@
-# build.scripts.inject
+# build.scripts.concat - inject
 
 ## What is this?
-It's a Gulp Task that lets you inject JS files in others.
+This parameter lets you inject JS files in others.
 This works with the UI-APP scaffolding.
 
 ## How it works
+Inject is inactive by default in the [ui-gulp_tasks](https://github.com/mercadolibre/ui-gulp_tasks), you need to activate it
+1) Edit your gulpfile.js
+```js
+var buildConcat = require('ui-gulp_tasks/tasks/build.scripts.concat');
+buildConcat(gulp, paths, bundles, {
+    'inject': true,
+    'injectBasePath': './src/scripts/'
+})
+```
+`injectBasePath`: This is the base path where inject with look for files. 
 
-1) Copy the task `build.scripts.inject.js` in `ui-app/config/tasks`  
-
-2) Replace the task `build.scripts.concat` with this one.  
-![c1](https://cloud.githubusercontent.com/assets/16105726/23305771/19a76dce-fa7f-11e6-8881-ea7c0ae9d287.png)  
-![c2](https://cloud.githubusercontent.com/assets/16105726/23305788/327288e8-fa7f-11e6-9cab-155a60e55a1c.png)  
-
-3) Inject files:  
+For example, if you have this in your js file:  
 `inject('components/filea');`  
+
+Inject with look the file here:  
+`./src/scripts/components/filea.js`
+
+2) Inject files: [Example](https://github.com/fallemand/build.scripts.inject/blob/master/ui-app/src/scripts/components/a.js)
+`inject('components/filea');` 
 Do not put the .js extension.  
-The path is absolute starting from src/scripts.  
+The path is absolute starting from `injectBasePath`.  
 
-4) Generate the bundles, and they will have the injections.  
-`npm run build`  
-
-## If you use NPM 2  
-Change the dependencies in the file `build.scripts.inject` for this:  
-![c5](https://cloud.githubusercontent.com/assets/16105726/23305933/ce237414-fa7f-11e6-9206-99a9eae31ec0.png)  
+3) Generate the bundles, and they will have the injections.  
+`npm run build`
+ 
