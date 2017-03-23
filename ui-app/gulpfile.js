@@ -13,7 +13,6 @@ var deploySwift = require('ui-gulp_tasks/tasks/deploy.swift');
 var deployGHpages = require('ui-gulp_tasks/tasks/deploy.ghpages');
 var tasks = [
     require('ui-gulp_tasks/tasks/build.clean'),
-    require('./config/tasks/build.scripts.inject'),
     require('ui-gulp_tasks/tasks/build.styles'),
     require('ui-gulp_tasks/tasks/dist.clean'),
     require('ui-gulp_tasks/tasks/dist.scripts'),
@@ -26,6 +25,12 @@ var tasks = [
 tasks.forEach(function (task) {
     task(gulp, paths, bundles);
 });
+
+var buildConcat = require('ui-gulp_tasks/tasks/build.scripts.concat');
+buildConcat(gulp, paths, bundles, {
+    'inject': true,
+    'injectBasePath': './src/scripts/'
+})
 
 deploySwift(gulp, paths, bundles, {
     'department': 'ui',
@@ -44,7 +49,7 @@ deployGHpages(gulp, paths);
 gulp.task('build', gulpSync.sync([
     'build:clean',
     [
-        'build:scripts-inject',
+        'build:scripts-concat',
         'build:styles'
     ]
 ]));
